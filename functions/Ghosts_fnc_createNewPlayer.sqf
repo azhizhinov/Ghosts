@@ -15,6 +15,7 @@ player setCustomAimCoef 0.3;
 player enableFatigue false;
 player enableStamina false;
 player allowSprint true;
+player allowDamage true;
 
 player setVariable ["Ghosts_playerIsBleeding",-1,true];
 player setVariable ["Ghosts_lastSourceOfDamage",nil,true];
