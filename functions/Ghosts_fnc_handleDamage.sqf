@@ -28,7 +28,7 @@ if ((_currentDamage + _incomingDamage) > _damageRequired) then
 		player allowDamage false;
 		player setVariable ["Ghosts_PlayerIsUnconcious",true,true];
 		player setUnconscious true;
-
+		/*
 		[] spawn
 		{
 			while {true} do
@@ -51,6 +51,7 @@ if ((_currentDamage + _incomingDamage) > _damageRequired) then
 
 				uiSleep 5;
 			};	
-		};	
+		};
+		*/	
 	};
 };

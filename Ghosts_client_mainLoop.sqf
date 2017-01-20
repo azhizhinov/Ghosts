@@ -36,9 +36,10 @@ while {true} do
 
 		/** Blood Loss **/
 
-		_timeRemaining = player getVariable ["Ghosts_playerIsBleeding",-1];
-		//hint str _timeRemaining;
-		if (!(_timeRemaining isEqualTo -1) && (time - Ghosts_bloodlossCoolDown >= Ghosts_lastBloodLossTick)) then
+		_isBleeding = player getVariable ["Ghosts_playerIsBleeding",-1];
+		_timeRemaining = _isBleeding select 1;
+
+		if (!(_isBleeding isEqualTo -1) && (time - Ghosts_bloodlossCoolDown >= Ghosts_lastBloodLossTick)) then
 		{
 			[30] call BIS_fnc_bloodEffect;
 
@@ -49,7 +50,7 @@ while {true} do
 
 			if (_timeRemaining > 0) then
 			{	
-				player setVariable ["Ghosts_playerIsBleeding",_timeRemaining,true];
+				player setVariable ["Ghosts_playerIsBleeding",[true,_timeRemaining],true];
 			}
 			else
 			{
@@ -61,12 +62,13 @@ while {true} do
 				player setDamage 1;
 				player setVariable ["Ghosts_playerIsBleeding",-1,true];
 				player setVariable ["Ghosts_PlayerIsUnconcious",false,false];
+				player allowDamage true;
 				Ghosts_bloodLevel = 0;
 			};	
 		};
 
 		/** Display stats **/
-		/*
+		
 		_currentDamage = damage player;
 		_health = 100 - (damage player * 100);
 		

@@ -45,7 +45,7 @@ Ghosts_userActions pushBack
         Ghosts_openStashAction,
         "Ghosts_has_stashAction",
         "Ghosts_has_stashAction_current",
-        "!Ghosts_player_isAccessingStash",
+        "!Ghosts_player_isAccessingStash && player distance (getMarkerPos 'stash_marker') < 5",
         false
     ] 
 ];

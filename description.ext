@@ -1,3 +1,4 @@
+briefing = 0;
 enableDebugConsole = 2;
 
 disableChannels[]={0,2};
