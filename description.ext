@@ -1,0 +1,35 @@
+enableDebugConsole = 2;
+
+disableChannels[]={0,2};
+
+class CfgRemoteExec
+{
+    class Commands
+    {
+            mode = 2;
+
+            class setUnconscious {allowedTargets = 2;};
+    };
+    class Functions
+    {
+        mode = 0;
+        jip = 0;                                       						//no functions can use jip
+					
+        class BIS_fnc_setRank {allowedTargets = 1;};   						//execute only on clients, server execution denied
+    };
+};
+
+class CfgFunctions
+{
+    class Ghosts
+    {
+        class Bootstrap
+        {
+            file="client_init";
+            class preInit
+            {
+                preInit = 1;
+            };
+        };
+    };
+};
