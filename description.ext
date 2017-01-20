@@ -9,6 +9,7 @@ class CfgRemoteExec
             mode = 2;
 
             class setUnconscious {allowedTargets = 2;};
+            class allowDamage {allowedTargets = 2;};
     };
     class Functions
     {
