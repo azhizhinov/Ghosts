@@ -44,6 +44,7 @@ forEach
 	["Ghosts_fnc_createNewPlayer","functions\Ghosts_fnc_createNewPlayer.sqf"],
 	//Event handlers
 	["Ghosts_fnc_handleDamage","client_eventHandlers\Ghosts_fnc_handleDamage.sqf"],
+    ["Ghosts_fnc_getBulletRating","functions\Ghosts_fnc_getBulletRating.sqf"],
 	["Ghosts_fnc_handleRespawn","client_eventHandlers\Ghosts_fnc_handleRespawn.sqf"],
 	["Ghosts_fnc_onMPKilled","client_eventHandlers\Ghosts_fnc_onMPKilled.sqf"],
 	["Ghosts_fnc_onPut","client_eventHandlers\Ghosts_fnc_onPut.sqf"],

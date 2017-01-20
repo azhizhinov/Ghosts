@@ -4,7 +4,7 @@
 
 */
 
-private ["_timeRemaining"];
+private ["_timeRemaining","_isBleeding"];
 
 waitUntil 
 {
@@ -37,10 +37,10 @@ while {true} do
 		/** Blood Loss **/
 
 		_isBleeding = player getVariable ["Ghosts_playerIsBleeding",-1];
-		_timeRemaining = _isBleeding select 1;
 
 		if (!(_isBleeding isEqualTo -1) && (time - Ghosts_bloodlossCoolDown >= Ghosts_lastBloodLossTick)) then
 		{
+			_timeRemaining = _isBleeding select 1;
 			[30] call BIS_fnc_bloodEffect;
 
 			Ghosts_lastBloodLossTick = time;

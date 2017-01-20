@@ -48,8 +48,8 @@ if (isServer) then
 //if !(isDedicated) then
 //{	
 
-	cutText ["","BLACK FADED",10];
-	[] execVM "intro\intro.sqf";
+	//cutText ["","BLACK FADED",10];
+	//[] execVM "intro\intro.sqf";
 
 	player setCustomAimCoef 0.3;
 	player enableFatigue false;

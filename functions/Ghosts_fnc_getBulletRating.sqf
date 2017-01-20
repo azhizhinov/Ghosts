@@ -166,25 +166,26 @@ _bulletArrayExtreme =
 	"B_127x108_APDS"
 ];
 
-_bloodLoss = 500 + floor (random 1000);
+//_bloodLoss = 500 + floor (random 1000);
+_bloodLoss = 50 + floor (random 50);
 
 if (_bullet in _bulletArrayLow) then
 {
-	_bloodLoss = 500 + floor (random 1000);
+	_bloodLoss = 100 + floor (random 50);
 };	
 
 if (_bullet in _bulletArrayMed) then
 {
-	_bloodLoss = 1000 + floor (random 2000);
+	_bloodLoss = 125 + floor (random 50);
 };	
 	
 if (_bullet in _bulletArrayHigh) then
 {
-	_bloodLoss = 3000 + floor (random 5000);
+	_bloodLoss = 135 + floor (random 50);
 };
 if (_bullet in _bulletArrayExtreme) then
 {
-	_bloodLoss = 6000 + floor (random 12000);
+	_bloodLoss = 145 + floor (random 50);
 };
 
 _bloodLoss
