@@ -82,7 +82,7 @@ if (_playerData isEqualTo -1) exitWith
 
 			player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 			player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
-			player addMPEventHandler ["MPKilled", { _this call Ghosts_fnc_onMPKilled; }];
+			player addEventHandler ["Killed", { _this call Ghosts_fnc_onMPKilled; }];
 			player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 			player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
 		};	

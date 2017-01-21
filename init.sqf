@@ -37,6 +37,8 @@ if (isServer) then
 	west setFriend [civilian,0];
 	east setFriend [civilian,0];
 
+	["Initialize"] call BIS_fnc_dynamicGroups;
+
 	player addAction ["Remove SERVER data",
 	{
 		profileNamespace setVariable ["Ghosts_server_allSavedPlayerData",[]];
