@@ -82,6 +82,7 @@ if !(isDedicated) then
 	disableUserInput true;
 	cutText ["","BLACK FADED",10];
 	[] execVM "intro\intro.sqf";
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
 	player setCustomAimCoef 0.3;
 	player enableFatigue false;
