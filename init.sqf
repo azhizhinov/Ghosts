@@ -43,13 +43,38 @@ if (isServer) then
 		Ghosts_server_allSavedPlayerData = [];
 		saveProfileNamespace;
 	}];
+
+	player addAction ["Spawn AI chunts",
+	{
+		[
+			[false,[0,0,0]], 	// Force AI to move to specific position after spawning - Params - 0: Boolean, enable 1: Position to move to
+			"TOWN",				// if "TOWN" AI will spawn at a random town other wise, "RANDOM"
+			2,					// Amount of AI groups to spawn this call
+			1,					// minimum soldiers per group
+			3,					// Maximum soldiers per group
+			150					// Roaming radius
+		]
+
+		call Ghosts_fnc_spawnAIGroup;
+
+		[
+			[false,[0,0,0]], 	// Force AI to move to specific position after spawning - Params - 0: Boolean, enable 1: Position to move to
+			"RANDOM",			// if "TOWN" AI will spawn at a random town other wise, position 
+			2,					// Amount of AI groups to spawn this call
+			1,					// minimum soldiers per group
+			3,					// Maximum soldiers per group
+			150					// Roaming radius
+		]
+
+		call Ghosts_fnc_spawnAIGroup;
+	}];
 };	
 
-//if !(isDedicated) then
-//{	
-
-	//cutText ["","BLACK FADED",10];
-	//[] execVM "intro\intro.sqf";
+if !(isDedicated) then
+{	
+	disableUserInput true;
+	cutText ["","BLACK FADED",10];
+	[] execVM "intro\intro.sqf";
 
 	player setCustomAimCoef 0.3;
 	player enableFatigue false;
@@ -87,7 +112,9 @@ if (isServer) then
 	[] call Ghosts_fnc_loadPlayerData;
 
 	[] execVM "Ghosts_client_mainLoop.sqf";
-//};
+
+	disableUserInput false;
+};
 
 player addAction ["Save player data",
 {

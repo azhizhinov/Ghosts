@@ -11,6 +11,15 @@
 
 //hint "Respawwwwwwwwning";
 
+private ["_uniforms","_weapons","_startingLoadout"];
+
+_uniforms = [""];
+_weapons = [""];
+_startingLoadout = 
+[
+	["rhsusf_weap_MP7A2","","","",["rhsusf_mag_40Rnd_46x30_FMJ",40],[],""],[],[],["U_I_G_resistanceLeader_F",[["rhsusf_mag_40Rnd_46x30_FMJ",3,40]]],[],["B_AssaultPack_blk",[["rhsusf_mag_40Rnd_46x30_FMJ",4,40]]],"","",[],["","","","","",""]
+];
+
 player setCustomAimCoef 0.3;
 player enableFatigue false;
 player enableStamina false;
@@ -39,5 +48,6 @@ player setVariable ["Ghosts_playerData",1];
 /** set position and loadout **/
 
 player setPos ([(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos);
+player setUnitLoadout _startingLoadout;
 
 [true] call Ghosts_fnc_savePlayerData;
