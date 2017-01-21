@@ -4,7 +4,7 @@ _playerData = profileNamespace getVariable ["Ghosts_playerData",-1];
 
 if (_playerData isEqualTo -1) exitWith
 {
-	[] call Ghosts_fnc_createNewPlayer; hint "creating new player";
+	[] spawn Ghosts_fnc_createNewPlayer;
 };
 
 /** Side check **/

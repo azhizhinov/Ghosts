@@ -30,8 +30,8 @@ if (_spawnPosition isEqualTo "TOWN") then
 {
 	_spawnPosition = [(selectRandom Ghosts_townLocation_positions),50] call Ghosts_fnc_findRandomPositionInCircle;
 
-	_marker1 = createMarker [ format["HeliCrash%1", diag_tickTime], _spawnPosition];
-	_marker1 setMarkerType "mil_warning";
+	//_marker1 = createMarker [ format["HeliCrash%1", diag_tickTime], _spawnPosition];
+	//_marker1 setMarkerType "mil_warning";
 }
 else
 {

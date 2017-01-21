@@ -38,6 +38,7 @@ forEach
 	["Ghosts_fnc_handlePlayerActions","functions\Ghosts_fnc_handlePlayerActions.sqf"],
 	["Ghosts_fnc_targetLifeState","functions\Ghosts_fnc_targetLifeState.sqf"],
 	["Ghosts_fnc_accessPlayerStash","functions\Ghosts_fnc_accessPlayerStash.sqf"],
+    ["Ghosts_fnc_takeUniform","functions\Ghosts_fnc_takeUniform.sqf"],
 	//player saving
 	["Ghosts_fnc_savePlayerData","functions\Ghosts_fnc_savePlayerData.sqf"],
 	["Ghosts_fnc_loadPlayerData","functions\Ghosts_fnc_loadPlayerData.sqf"],
@@ -52,4 +53,4 @@ forEach
 	["Ghosts_fnc_onInventoryOpened","client_eventHandlers\Ghosts_fnc_onInventoryOpened.sqf"]
 ];
 
-true 
+true

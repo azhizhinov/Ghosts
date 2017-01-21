@@ -23,6 +23,7 @@ if ((_currentDamage + _incomingDamage) > _damageRequired) then
 		player allowDamage false;
 		player setVariable ["Ghosts_PlayerIsUnconcious",true,true];
 		player setUnconscious true;
+		player setDamage 0.9;
 		/*
 		[] spawn
 		{

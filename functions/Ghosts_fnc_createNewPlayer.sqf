@@ -52,4 +52,14 @@ player setVariable ["Ghosts_playerData",1];
 player setPos ([(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos);
 player setUnitLoadout _startingLoadout;
 
+player allowDamage false;
+
+cutText ["","BLACK FADED",10];
+disableUserInput true;
+uiSleep 5;
+cutText ["","BLACK IN",10];
+disableUserInput false;
+
+player allowDamage true;
+
 [true] call Ghosts_fnc_savePlayerData;

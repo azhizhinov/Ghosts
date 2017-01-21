@@ -38,11 +38,8 @@ if (isServer) then
 	west setFriend [civilian,0];
 	east setFriend [civilian,0];
 
-	{
-		_x addMPEventHandler ["MPKilled", { _this call Ghosts_fnc_onMPKilled; }];
-	} forEach playableUnits;
-
 	["Initialize"] call BIS_fnc_dynamicGroups;
+	[] execVM "Ghosts_server_mainLoop.sqf";	
 
 	player addAction ["Remove SERVER data",
 	{
@@ -50,7 +47,7 @@ if (isServer) then
 		Ghosts_server_allSavedPlayerData = [];
 		saveProfileNamespace;
 	}];
-
+	/*
 	player addAction ["Spawn AI chunts",
 	{
 		[
@@ -75,6 +72,7 @@ if (isServer) then
 
 		call Ghosts_fnc_spawnAIGroup;
 	}];
+	*/
 };	
 
 if !(isDedicated) then
@@ -107,12 +105,12 @@ if !(isDedicated) then
 	Ghosts_player_isAccessingStash = false;
 
 	Ghosts_playerLoaded = false;
-	
+	/*
 	player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 	player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
 	player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 	player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
-	
+	*/
 	uiSleep 5;
 
 	[] call Ghosts_fnc_createPlayerActions;
@@ -122,7 +120,7 @@ if !(isDedicated) then
 
 	disableUserInput false;
 };
-
+/*
 player addAction ["Save player data",
 {
 	[false] call Ghosts_fnc_savePlayerData;

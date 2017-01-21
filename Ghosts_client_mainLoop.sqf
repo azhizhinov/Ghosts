@@ -59,7 +59,7 @@ while {true} do
 
 			if (Ghosts_bloodLevel <= 0) then
 			{
-				player setDamage 1;
+				player setDamage (damage player) + 0.01;
 				player setVariable ["Ghosts_playerIsBleeding",-1,true];
 				player setVariable ["Ghosts_PlayerIsUnconcious",false,false];
 				player allowDamage true;

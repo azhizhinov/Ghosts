@@ -14,3 +14,8 @@ if !(_killer isEqualTo -1) then
 
 	_killer setVariable ["Ghosts_playerKills",_newKillerKills,true];
 };
+
+if (_unit getVariable ["Ghosts_PlayerIsUnconcious",false] isEqualTo true) then
+{
+	_unit setUnconscious false;
+};	
