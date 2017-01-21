@@ -79,6 +79,12 @@ if (_playerData isEqualTo -1) exitWith
 
 			Ghosts_playerLoaded = true;
 			player setVariable ["Ghosts_playerData",1];
+
+			player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
+			player addEventHandler ["Respawn", { [] call Ghosts_fnc_handleRespawn; }];
+			player addMPEventHandler ["MPKilled", { [] call Ghosts_fnc_onMPKilled; }];
+			player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
+			player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
 		};	
 	}
 	else

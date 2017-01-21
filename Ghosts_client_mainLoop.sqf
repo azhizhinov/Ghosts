@@ -94,7 +94,7 @@ while {true} do
 		};
 	};
 
-	player addRating -100000;
+	player addRating 100000;
 
 	uiSleep 2;	
 };

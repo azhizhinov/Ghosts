@@ -14,7 +14,7 @@ class CfgRemoteExec
     };
     class Functions
     {
-        mode = 0;
+        mode = 2;
         jip = 0;                                       						//no functions can use jip
 					
         class BIS_fnc_setRank {allowedTargets = 1;};   						//execute only on clients, server execution denied
