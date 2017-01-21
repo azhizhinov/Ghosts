@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=8;
+		nextID=10;
 	};
 	class Camera
 	{
@@ -182,6 +182,7 @@ class ScenarioData
 	author="Bek";
 	disabledAI=1;
 	respawn=3;
+	respawnDelay=5;
 	class Header
 	{
 		gameType="Sandbox";
@@ -1857,7 +1858,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7139.0317,1.1064304,5970.8457};
+						position[]={7139.0322,1.1063265,5970.8457};
 					};
 					side="Independent";
 					flags=7;
@@ -1867,7 +1868,6 @@ class Mission
 					};
 					id=345;
 					type="I_G_Survivor_F";
-					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2057,7 +2057,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7133.5449,1.8924681,5964.4937};
+						position[]={7133.5449,1.8924679,5964.4937};
 					};
 					side="Independent";
 					flags=5;
@@ -2067,7 +2067,6 @@ class Mission
 					};
 					id=352;
 					type="I_Survivor_F";
-					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2097,7 +2096,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7133.2969,2.9148629,5966.0337};
+						position[]={7133.2969,2.9148631,5966.0337};
 					};
 					side="Independent";
 					flags=5;
@@ -2107,7 +2106,6 @@ class Mission
 					};
 					id=353;
 					type="I_Survivor_F";
-					atlOffset=-2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2137,7 +2135,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7133.5239,3.4076526,5967.9727};
+						position[]={7133.5239,3.4076524,5967.9727};
 					};
 					side="Independent";
 					flags=5;
@@ -2147,7 +2145,7 @@ class Mission
 					};
 					id=354;
 					type="I_Survivor_F";
-					atlOffset=7.1525574e-007;
+					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2177,7 +2175,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={7133.6089,3.6818786,5969.9648};
+						position[]={7133.6089,3.6818783,5969.9648};
 					};
 					side="Independent";
 					flags=5;
@@ -2187,7 +2185,6 @@ class Mission
 					};
 					id=355;
 					type="I_Survivor_F";
-					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2217,7 +2214,6 @@ class Mission
 			{
 			};
 			id=344;
-			atlOffset=2.3841858e-007;
 		};
 	};
 };

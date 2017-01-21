@@ -11,7 +11,7 @@ _data =
 	(player getVariable ["Ghosts_playerKills",Ghosts_playerKills]),
 	(player getVariable ["Ghosts_playerIsBleeding",-1]),
 	(player getVariable ["Ghosts_playerSide",-1]),
-	//
+	
 	[
 		(player getVariable ["Ghosts_playerStash",[]])
 	]	

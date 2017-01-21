@@ -37,6 +37,7 @@ else
 };	
 
 profileNamespace setVariable ["Ghosts_server_allSavedPlayerData",Ghosts_server_allSavedPlayerData];
+saveProfileNamespace;
 
 //hint str (profileNamespace getVariable ["Ghosts_server_allSavedPlayerData",[]]);
 //Ghosts_server_allSavedPlayerData pushBack [[],11111];

@@ -21,6 +21,7 @@ if (isServer) then
 	Ghosts_fnc_AIgear = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_AIgear.sqf";
 	Ghosts_fnc_taskPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_taskPatrol.sqf";
 	Ghosts_fnc_spawnAIGroup = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_spawnAIGroup.sqf";
+	//Ghosts_fnc_onMPKilled = compileFinal preprocessFileLineNumbers "functions\Ghosts_fnc_onMPKilled.sqf";
 
 	Ghosts_server_graveYardGroup = createGroup EAST;
 
@@ -36,6 +37,10 @@ if (isServer) then
 	civilian setFriend [WEST,0];
 	west setFriend [civilian,0];
 	east setFriend [civilian,0];
+
+	{
+		_x addMPEventHandler ["MPKilled", { _this call Ghosts_fnc_onMPKilled; }];
+	} forEach playableUnits;
 
 	["Initialize"] call BIS_fnc_dynamicGroups;
 
@@ -101,13 +106,12 @@ if !(isDedicated) then
 	Ghosts_player_isAccessingStash = false;
 
 	Ghosts_playerLoaded = false;
-	/*
+	
 	player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 	player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
-	player addMPEventHandler ["MPKilled", { [] call Ghosts_fnc_onMPKilled; }];
 	player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 	player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
-	*/
+	
 	uiSleep 5;
 
 	[] call Ghosts_fnc_createPlayerActions;

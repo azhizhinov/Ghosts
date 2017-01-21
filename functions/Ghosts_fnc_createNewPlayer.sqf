@@ -36,13 +36,11 @@ Ghosts_playerKills = 0;
 
 player removeAllEventHandlers "HandleDamage";
 player removeAllEventHandlers "Respawn";
-player removeAllEventHandlers "MPKilled";
 player removeAllEventHandlers "Put";
 player removeAllEventHandlers "Take";
 
 player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
-player addEventHandler ["Killed", { _this call Ghosts_fnc_onMPKilled; }];
 player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
 

@@ -4,7 +4,7 @@ _playerData = profileNamespace getVariable ["Ghosts_playerData",-1];
 
 if (_playerData isEqualTo -1) exitWith
 {
-	[] call Ghosts_fnc_createNewPlayer;
+	[] call Ghosts_fnc_createNewPlayer; hint "creating new player";
 };
 
 /** Side check **/
@@ -82,7 +82,6 @@ if (_playerData isEqualTo -1) exitWith
 
 			player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 			player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
-			player addEventHandler ["Killed", { _this call Ghosts_fnc_onMPKilled; }];
 			player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 			player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
 		};	
@@ -116,6 +115,10 @@ if (_playerData isEqualTo -1) exitWith
 			if !(alive player) exitWith 
 			{
 				Ghosts_playerLoaded = true;
+
+				player setVariable ["Ghosts_playerData",-1];
+				profileNameSpace setVariable ["Ghosts_playerData",-1];
+				saveProfileNamespace;
 			};
 
 			if (_timer > _timelimit) exitWith
@@ -123,7 +126,7 @@ if (_playerData isEqualTo -1) exitWith
 				profileNameSpace setVariable ["Ghosts_playerData",-1,true];
 				saveProfileNamespace;
 
-				uiSleep 1;
+				uiSleep 0.01;
 
 				endMission "LOSER";
 			};
