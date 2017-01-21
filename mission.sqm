@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=7;
+		nextID=8;
 	};
 	class Camera
 	{
-		pos[]={7189.9917,51.243523,5993.7007};
-		dir[]={-0.82171929,-0.24475554,-0.51471519};
-		up[]={-0.20744258,0.96957397,-0.12993969};
-		aside[]={-0.53085858,-4.2462489e-007,0.84749216};
+		pos[]={7208.4126,56.556225,6007.7412};
+		dir[]={-0.87558389,-0.34624556,-0.33693835};
+		up[]={-0.32316297,0.93813133,-0.12435821};
+		aside[]={-0.35915124,-3.8789585e-007,0.93330896};
 	};
 };
 binarizationWanted=0;
@@ -257,11 +257,11 @@ class Mission
 		class Item0
 		{
 			dataType="Marker";
-			position[]={5004.8188,5.7253294e+009,5912.4468};
-			name="Survivor_camp";
+			position[]={5004.8188,6.0399138e+027,5912.4468};
+			name="stash_marker";
 			type="hd_flag";
 			id=119;
-			atlOffset=5.7253294e+009;
+			atlOffset=6.0399138e+027;
 		};
 		class Item1
 		{
@@ -1867,6 +1867,7 @@ class Mission
 					};
 					id=345;
 					type="I_G_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1906,6 +1907,7 @@ class Mission
 					};
 					id=346;
 					type="I_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1945,6 +1947,7 @@ class Mission
 					};
 					id=347;
 					type="I_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -1984,6 +1987,7 @@ class Mission
 					};
 					id=348;
 					type="I_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2023,7 +2027,7 @@ class Mission
 					};
 					id=351;
 					type="I_Survivor_F";
-					atlOffset=2.3841858e-007;
+					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2063,6 +2067,7 @@ class Mission
 					};
 					id=352;
 					type="I_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2102,6 +2107,7 @@ class Mission
 					};
 					id=353;
 					type="I_Survivor_F";
+					atlOffset=-2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2141,7 +2147,7 @@ class Mission
 					};
 					id=354;
 					type="I_Survivor_F";
-					atlOffset=4.7683716e-007;
+					atlOffset=7.1525574e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2181,6 +2187,7 @@ class Mission
 					};
 					id=355;
 					type="I_Survivor_F";
+					atlOffset=2.3841858e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2210,6 +2217,7 @@ class Mission
 			{
 			};
 			id=344;
+			atlOffset=2.3841858e-007;
 		};
 	};
 };

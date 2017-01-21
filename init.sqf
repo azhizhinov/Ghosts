@@ -101,7 +101,7 @@ if !(isDedicated) then
 	Ghosts_playerLoaded = false;
 
 	player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
-	player addEventHandler ["Respawn", { [] call Ghosts_fnc_handleRespawn; }];
+	player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
 	player addMPEventHandler ["MPKilled", { [] call Ghosts_fnc_onMPKilled; }];
 	player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 	player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
