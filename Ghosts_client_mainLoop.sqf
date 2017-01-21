@@ -23,7 +23,7 @@ while {true} do
 
 		/** Blood Regen **/
 
-		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1) && (Ghosts_bloodLevel < 1200)) then
+		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1) && (Ghosts_bloodLevel < 1200) && (Ghosts_bloodLevel > 0)) then
 		{
 			Ghosts_bloodLevel = Ghosts_bloodLevel + Ghosts_bloodRegenPerTick;
 
@@ -56,16 +56,18 @@ while {true} do
 			{
 				player setVariable ["Ghosts_playerIsBleeding",-1,true];
 			};
-
-			if (Ghosts_bloodLevel <= 0) then
-			{
-				player setDamage (damage player) + 0.01;
-				player setVariable ["Ghosts_playerIsBleeding",-1,true];
-				player setVariable ["Ghosts_PlayerIsUnconcious",false,false];
-				player allowDamage true;
-				Ghosts_bloodLevel = 0;
-			};	
 		};
+		if (Ghosts_bloodLevel <= 0) then
+		{
+
+			//[30] call BIS_fnc_bloodEffect;
+
+			player setDamage (damage player) + 0.01;
+			//player setVariable ["Ghosts_playerIsBleeding",-1,true];
+			//player setVariable ["Ghosts_PlayerIsUnconcious",false,false];
+			player allowDamage true;
+			Ghosts_bloodLevel = 0;
+		};	
 
 		/** Display stats **/
 		

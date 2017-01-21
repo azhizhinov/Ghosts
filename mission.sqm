@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2983.1694,187.48634,5215.6626};
-		dir[]={-0.14258349,-0.4145979,0.89879841};
-		up[]={-0.064960517,0.91000038,0.40948611};
-		aside[]={0.98768288,-3.1194759e-007,0.15668532};
+		pos[]={7156.937,12.371026,5961.4917};
+		dir[]={-0.82464463,-0.50152183,0.26161695};
+		up[]={-0.47804421,0.86514318,0.15165909};
+		aside[]={0.30239731,-9.95351e-009,0.95318562};
 	};
 };
 binarizationWanted=0;
@@ -182,6 +182,8 @@ class ScenarioData
 	author="JohnO";
 	overviewText="Havent thought of a good description yet..";
 	showUAVFeed=0;
+	disabledAI=1;
+	joinUnassigned=0;
 	respawn=3;
 	respawnDelay=30.000002;
 	class Header
@@ -1893,7 +1895,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=345;
