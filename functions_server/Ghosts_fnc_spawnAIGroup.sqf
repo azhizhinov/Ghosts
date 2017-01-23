@@ -30,8 +30,20 @@ if (_spawnPosition isEqualTo "TOWN") then
 {
 	_spawnPosition = [(selectRandom Ghosts_townLocation_positions),50] call Ghosts_fnc_findRandomPositionInCircle;
 
-	//_marker1 = createMarker [ format["HeliCrash%1", diag_tickTime], _spawnPosition];
-	//_marker1 setMarkerType "mil_warning";
+	_markerTypes = ["hd_end","hd_join","hd_warning","hd_unknown"];
+	_markerTextTypes = 
+	[
+		"Enemy presence"
+	];
+
+	_markerType = selectRandom _markerTypes;
+	_markerText = selectRandom _markerTextTypes;
+
+	_marker = createMarker [ format["Notifcation%1", diag_tickTime],_spawnPosition];
+	_marker setMarkerType _markerType;
+	_marker setMarkerText _markerText;
+
+	Ghosts_map_currentMarkers pushBack [_marker,300 + floor (random 600),time];
 }
 else
 {

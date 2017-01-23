@@ -1,8 +1,8 @@
-/*
 
-	Handle server side functions
 
-*/
+/**	Initialize server AI **/
+
+[] call Ghosts_server_fnc_spawnAirPatrol;
 for "_i" from 0 to 10 + floor (random 5) do
 {
 	
@@ -28,6 +28,8 @@ for "_i" from 0 to 10 + floor (random 5) do
 
 	call Ghosts_fnc_spawnAIGroup;
 };
+
+/** Start the main server thread **/
 
 while {true} do
 {
@@ -60,7 +62,17 @@ while {true} do
 		]
 
 		call Ghosts_fnc_spawnAIGroup;
+	};
+
+	if (time - Ghosts_server_airPatrolInterval >= Ghosts_server_airPatrolInterval_timeStamp) then
+	{
+		[] call Ghosts_server_fnc_spawnAirPatrol;
+		Ghosts_server_airPatrolInterval_timeStamp = time;
 	};	
+
+	/** Call marker cleanup func **/
+
+	[] call Ghosts_fnc_deleteMarkers;
 
 	{
 		_x removeAllMPEventHandlers "MPKilled";

@@ -7,6 +7,7 @@ if (isServer) then
 	Ghosts_allTownLocations = nearestLocations [[0,0,0], ["NameVillage","NameCity","NameCityCapital"], 30000];
 
 	Ghosts_townLocation_positions = [];
+	Ghosts_map_currentMarkers = [];
 
 	{
 		_index = _forEachIndex;
@@ -21,6 +22,7 @@ if (isServer) then
 	Ghosts_fnc_AIgear = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_AIgear.sqf";
 	Ghosts_fnc_taskPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_taskPatrol.sqf";
 	Ghosts_fnc_spawnAIGroup = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_spawnAIGroup.sqf";
+	Ghosts_fnc_deleteMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_deleteMarkers.sqf";
 	//Ghosts_fnc_onMPKilled = compileFinal preprocessFileLineNumbers "functions\Ghosts_fnc_onMPKilled.sqf";
 
 	Ghosts_server_graveYardGroup = createGroup EAST;
@@ -32,6 +34,8 @@ if (isServer) then
 	Ghosts_server_AI_town_spawnInterval_timestamp = time;
 	Ghosts_server_AI_random_spawnInterval = 900;
 	Ghosts_server_AI_random_spawnInterval_timestamp = time;
+	Ghosts_server_airPatrolInterval = 1100;
+	Ghosts_server_airPatrol_timestamp = time;
 
 	civilian setFriend [EAST,0];
 	civilian setFriend [WEST,0];
@@ -40,7 +44,7 @@ if (isServer) then
 
 	["Initialize"] call BIS_fnc_dynamicGroups;
 	[] execVM "Ghosts_server_mainLoop.sqf";	
-
+	/*
 	player addAction ["Remove SERVER data",
 	{
 		profileNamespace setVariable ["Ghosts_server_allSavedPlayerData",[]];
