@@ -6,9 +6,6 @@ _cfgArray = "
 
 )" configClasses (configFile >> "CfgWeapons");
 
-_xPos = 0;
-_yPos = 0;
-
 _names = [];
 
 {
@@ -18,7 +15,7 @@ _names = [];
 
 copyToClipBoard str _names;
 
-/**
+/**/
 
 private ["_cfgArray","_xPos","_yPos","_veh","_names"];
  
@@ -44,7 +41,7 @@ _names = [];
 copyToClipBoard str _names;
 
 
-/**
+/**/
 
 private ["_cfgArray","_xPos","_yPos","_veh","_names"];
  
