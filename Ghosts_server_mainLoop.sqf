@@ -63,16 +63,17 @@ while {true} do
 
 		call Ghosts_fnc_spawnAIGroup;
 	};
-
-	if (time - Ghosts_server_airPatrolInterval >= Ghosts_server_airPatrolInterval_timeStamp) then
+	
+	if (time - Ghosts_server_airPatrolInterval >= Ghosts_server_airPatrol_timestamp) then
 	{
 		[] call Ghosts_server_fnc_spawnAirPatrol;
-		Ghosts_server_airPatrolInterval_timeStamp = time;
+		Ghosts_server_airPatrol_timestamp = time;
 	};	
-
+	
 	/** Call marker cleanup func **/
-
-	[] call Ghosts_fnc_deleteMarkers;
+	
+	[] call Ghosts_fnc_maintainOccupationMarkers;
+	//[] call Ghosts_fnc_deleteMarkers;
 
 	{
 		_x removeAllMPEventHandlers "MPKilled";

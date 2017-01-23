@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=364;
+		nextID=423;
 	};
 	class MarkerIDProvider
 	{
-		nextID=3;
+		nextID=4;
 	};
 	class LayerIndexProvider
 	{
-		nextID=11;
+		nextID=12;
 	};
 	class Camera
 	{
-		pos[]={7156.937,12.371026,5961.4917};
-		dir[]={-0.82464463,-0.50152183,0.26161695};
-		up[]={-0.47804421,0.86514318,0.15165909};
-		aside[]={0.30239731,-9.95351e-009,0.95318562};
+		pos[]={7096.0552,10.707329,5984.5903};
+		dir[]={-0.62930214,-0.36770189,-0.6847108};
+		up[]={-0.24882418,0.92993617,-0.2707319};
+		aside[]={-0.7362901,-2.051529e-007,0.67670757};
 	};
 };
 binarizationWanted=0;
@@ -294,7 +294,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=88;
+		items=89;
 		class Item0
 		{
 			dataType="Layer";
@@ -2249,15 +2249,15 @@ class Mission
 		class Item86
 		{
 			dataType="Marker";
-			position[]={5008.1318,1.9738764e+022,5910.1768};
+			position[]={5008.1318,2.6221624e+029,5910.1768};
 			name="stash_marker";
 			markerType="ELLIPSE";
 			type="ellipse";
-			colorName="ColorGrey";
+			colorName="ColorBlue";
 			a=200;
 			b=200;
 			id=362;
-			atlOffset=1.9738764e+022;
+			atlOffset=2.6221624e+029;
 		};
 		class Item87
 		{
@@ -2272,6 +2272,36 @@ class Mission
 			b=200;
 			id=363;
 			atlOffset=2.5604828e+022;
+		};
+		class Item88
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7082.3369,7.9386125,5967.7856};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=384;
+					type="O_Soldier_AAA_F";
+					atlOffset=4.196167e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=383;
+			atlOffset=4.196167e-005;
 		};
 	};
 };

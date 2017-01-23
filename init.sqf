@@ -7,7 +7,6 @@ if (isServer) then
 	Ghosts_allTownLocations = nearestLocations [[0,0,0], ["NameVillage","NameCity","NameCityCapital"], 30000];
 
 	Ghosts_townLocation_positions = [];
-	Ghosts_map_currentMarkers = [];
 
 	{
 		_index = _forEachIndex;
@@ -16,13 +15,28 @@ if (isServer) then
 		Ghosts_townLocation_positions pushBack _position;
 	} forEach Ghosts_allTownLocations;
 
+	Ghosts_map_currentMarkers = [];
+	[] spawn
+	{
+		{
+			_marker = createMarker [ format["Notifcation%1", diag_tickTime],_x];
+			_marker setMarkerType "o_inf";
+			_marker setMarkerText "Estimated hostiles -";
+			
+			Ghosts_map_currentMarkers pushBack _marker;
+			uiSleep 1;
+		} forEach Ghosts_townLocation_positions;
+	};	
+
 	Ghosts_server_fnc_savePlayerProfileToDB = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf";
 	Ghosts_server_fnc_checkPlayerIntegrity = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_checkPlayerIntegrity.sqf";
 
 	Ghosts_fnc_AIgear = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_AIgear.sqf";
 	Ghosts_fnc_taskPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_taskPatrol.sqf";
 	Ghosts_fnc_spawnAIGroup = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_spawnAIGroup.sqf";
-	Ghosts_fnc_deleteMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_deleteMarkers.sqf";
+	Ghosts_server_fnc_spawnAirPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_spawnAirPatrol.sqf";
+	Ghosts_fnc_maintainOccupationMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf";
+	//Ghosts_fnc_deleteMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_deleteMarkers.sqf";
 	//Ghosts_fnc_onMPKilled = compileFinal preprocessFileLineNumbers "functions\Ghosts_fnc_onMPKilled.sqf";
 
 	Ghosts_server_graveYardGroup = createGroup EAST;

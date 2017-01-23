@@ -3,34 +3,31 @@ private ["_side","_soldier","_vehicle","_group","_patrolVehicle","_gunner1","_gu
 
 _side = WEST;
 _soldier ="B_Survivor_F";
-_vehicle = (selectRandom ["RHS_vehc_west"]);
+_vehicle = (selectRandom ["RHS_UH1Y_d"]);
 
 if (random 1 > 0.5) then
 {
 	_side = EAST;
 	_soldier = "O_G_Survivor_F";
-	_vehicle = (selectRandom ["Rhs_vehc_east"]);
+	_vehicle = (selectRandom ["RHS_Mi8mt_vvs"]);
 };	
 
 _group = createGroup _side;
 _group setCombatMode "RED";
 
-_patrolVehicle =createvehicle [_vehicle,[0,0,0],[],0,"FLY"];
+_patrolVehicle = createvehicle [_vehicle,position player,[],0,"NONE"];
 
-_pilot = createUnit [_soldier,[0,0,0],[],0,"NONE"];
+_pilot = _group createUnit [_soldier,[0,0,0],[],0,"NONE"];
 _pilot moveInDriver _patrolVehicle;
 
 _gunner1 = _group createUnit [_soldier,[0,0,0],[],0,"NONE"];
-_gunner1 moveInTurret [_patrolVehicle,[0]];
-//_gunner1 setCaptive true;
+_gunner1 moveInTurret [_patrolVehicle,[1]];
 
 _gunner2 = _group createUnit [_soldier,[0,0,0],[],0,"NONE"];
-_gunner2 moveInTurret [_patrolVehicle,[1]];
-//_gunner2 setCaptive true;
+_gunner2 moveInTurret [_patrolVehicle,[2]];
 
 _patrolVehicle flyInHeight 100;
-
-/** Give the patrol 5 waypoints **/
+_patrolVehicle limitSpeed 30;
 
 for "_i" from 0 to 5 do
 {
@@ -45,8 +42,6 @@ for "_i" from 0 to 5 do
 	};	
 };
 
-/** Set the crews skill **/
-
 {
 
 	_x setskill ["aimingAccuracy",0.15];
@@ -58,7 +53,7 @@ for "_i" from 0 to 5 do
 	_x setskill ["reloadSpeed",0.20];
 	_x setskill ["commanding",0.50];
 
-	/** Event handlers **/
+	
 	_x addMPEventHandler 
 	["MPKilled",
 		{
@@ -82,3 +77,15 @@ for "_i" from 0 to 5 do
 } forEach [_pilot,_gunner1,_gunner2];
 
 Ghosts_server_currentAI = Ghosts_server_currentAI + 3;
+/*
+[_patrolVehicle] spawn
+{
+	while {true} do
+	{	
+		_v = _this select 0;
+		_mk = createMarker ["MK",(getPos _v)];
+		_mk setMarkerType "o_inf";
+		_mk setMarkerPos (getPos _v);
+		uiSleep 1;
+	};	
+};

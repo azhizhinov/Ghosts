@@ -29,7 +29,7 @@ if (Ghosts_server_currentAI >= Ghosts_server_maximumAllowedAI) exitWith {};
 if (_spawnPosition isEqualTo "TOWN") then
 {
 	_spawnPosition = [(selectRandom Ghosts_townLocation_positions),50] call Ghosts_fnc_findRandomPositionInCircle;
-
+	/*
 	_markerTypes = ["hd_end","hd_join","hd_warning","hd_unknown"];
 	_markerTextTypes = 
 	[
@@ -44,6 +44,7 @@ if (_spawnPosition isEqualTo "TOWN") then
 	_marker setMarkerText _markerText;
 
 	Ghosts_map_currentMarkers pushBack [_marker,300 + floor (random 600),time];
+	*/
 }
 else
 {
