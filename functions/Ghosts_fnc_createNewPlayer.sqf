@@ -45,6 +45,8 @@ player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
 
 Ghosts_playerLoaded = true;
+Ghosts_player_isAccessingStash = false;
+
 player setVariable ["Ghosts_playerData",1];
 
 /** set position and loadout **/
