@@ -1,4 +1,4 @@
-
+private ["_corpse","_uniformCorpse","_uniformItemsCorpse","_unfiromMagazinesCorpse","_uniformPlayer","_unfiromMagazinesPlayer","_uniformItemsPlayer"];
 
 _corpse = _this select 0;
 

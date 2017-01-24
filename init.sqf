@@ -27,6 +27,9 @@ if (isServer) then
 			uiSleep 1;
 		} forEach Ghosts_townLocation_positions;
 	};	
+
+	addMissionEventHandler ["HandleDisconnect", { _this call Ghosts_server_fnc_onHandleDisconnect; }];
+
 	/*
 	Ghosts_server_fnc_savePlayerProfileToDB = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf";
 	Ghosts_server_fnc_checkPlayerIntegrity = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_checkPlayerIntegrity.sqf";
@@ -36,6 +39,7 @@ if (isServer) then
 	Ghosts_server_fnc_spawnAirPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_spawnAirPatrol.sqf";
 	Ghosts_fnc_maintainOccupationMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf";
 	*/
+
 	Ghosts_server_graveYardGroup = createGroup EAST;
 
 	Ghosts_server_maximumAllowedAI = 200;

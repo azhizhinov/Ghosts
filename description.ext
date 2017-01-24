@@ -7,17 +7,16 @@ class CfgRemoteExec
 {
     class Commands
     {
-            mode = 2;
+            mode = 1;
 
             class setUnconscious {allowedTargets = 2;};
             class allowDamage {allowedTargets = 2;};
     };
     class Functions
     {
-        mode = 2;
-        jip = 0;                                       						//no functions can use jip
+        mode = 1;                                   						                       
 					
-        class BIS_fnc_setRank {allowedTargets = 1;};   						//execute only on clients, server execution denied
+        class Ghosts_server_fnc_savePlayerProfileToDB {allowedTargets = 2;};   						//execute only on clients, server execution denied
     };
 };
 

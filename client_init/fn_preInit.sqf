@@ -60,7 +60,8 @@ forEach
     ["Ghosts_fnc_taskPatrol","functions_server\Ghosts_fnc_taskPatrol.sqf"],
     ["Ghosts_fnc_AIgear","functions_server\Ghosts_fnc_AIgear.sqf"],
     ["Ghosts_fnc_spawnAIGroup","functions_server\Ghosts_fnc_spawnAIGroup.sqf"],
-    ["Ghosts_fnc_maintainOccupationMarkers","functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf"]
+    ["Ghosts_fnc_maintainOccupationMarkers","functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf"],
+    ["Ghosts_server_fnc_onHandleDisconnect","functions_server\Ghosts_server_fnc_onHandleDisconnect.sqf"]
 ];
 
 true
