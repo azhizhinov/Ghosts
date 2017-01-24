@@ -49,13 +49,13 @@ switch (_keyCode) do
 		};
 		if !(earPlugs) then
 		{
-			0 fadeSound 0.2;
+			7 fadeSound 0.2;
 			earPlugs = true;
 			titleText ["Ear plugs ENABLED","PLAIN DOWN",0.2];
 		}
 		else
 		{
-			0 fadeSound 1;
+			7 fadeSound 1;
 			earPlugs = false;
 			titleText ["Ear plugs DISABLED","PLAIN DOWN",0.2];
 		};	
