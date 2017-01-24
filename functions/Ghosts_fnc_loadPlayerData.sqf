@@ -84,6 +84,7 @@ if (_playerData isEqualTo -1) exitWith
 			player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
 			player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 			player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
+			(findDisplay 46) displayAddEventHandler ["KeyDown", { _this call Ghosts_fnc_eventOnKeyDown; }];
 		};	
 	}
 	else

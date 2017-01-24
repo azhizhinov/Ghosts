@@ -2,8 +2,8 @@ private ['_code', '_function', '_file'];
 
 if (hasInterface) then 
 {
-    if (!isNumber (missionConfigFile >> "briefing")) exitWith {};
-    if (getNumber (missionConfigFile >> "briefing") == 1) exitWith {};
+    //if (!isNumber (missionConfigFile >> "briefing")) exitWith {};
+    //if (getNumber (missionConfigFile >> "briefing") == 1) exitWith {};
     [] spawn 
     {
         private ["_d"];
@@ -33,6 +33,7 @@ if (hasInterface) then
 }
 forEach
 [
+    /** Client Functions **/
 	["Ghosts_fnc_findRandomPositionInCircle","functions\Ghosts_fnc_findRandomPositionInCircle.sqf"],
 	["Ghosts_fnc_createPlayerActions","functions\Ghosts_fnc_createPlayerActions.sqf"],
 	["Ghosts_fnc_handlePlayerActions","functions\Ghosts_fnc_handlePlayerActions.sqf"],
@@ -50,7 +51,16 @@ forEach
 	["Ghosts_fnc_onMPKilled","client_eventHandlers\Ghosts_fnc_onMPKilled.sqf"],
 	["Ghosts_fnc_onPut","client_eventHandlers\Ghosts_fnc_onPut.sqf"],
 	["Ghosts_fnc_onTakeFromStash","client_eventHandlers\Ghosts_fnc_onTakeFromStash.sqf"],
-	["Ghosts_fnc_onInventoryOpened","client_eventHandlers\Ghosts_fnc_onInventoryOpened.sqf"]
+    ["Ghosts_fnc_eventOnKeyDown","client_eventHandlers\Ghosts_fnc_eventOnKeyDown.sqf"],
+
+    /** Server Functions **/
+    ["Ghosts_server_fnc_spawnAirPatrol","functions_server\Ghosts_server_fnc_spawnAirPatrol.sqf"],
+    ["Ghosts_server_fnc_savePlayerProfileToDB","functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf"],
+    ["Ghosts_server_fnc_checkPlayerIntegrity","functions_server\Ghosts_server_fnc_checkPlayerIntegrity.sqf"],
+    ["Ghosts_fnc_taskPatrol","functions_server\Ghosts_fnc_taskPatrol.sqf"],
+    ["Ghosts_fnc_AIgear","functions_server\Ghosts_fnc_AIgear.sqf"],
+    ["Ghosts_fnc_spawnAIGroup","functions_server\Ghosts_fnc_spawnAIGroup.sqf"],
+    ["Ghosts_fnc_maintainOccupationMarkers","functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf"]
 ];
 
 true

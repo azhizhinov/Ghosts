@@ -27,18 +27,15 @@ if (isServer) then
 			uiSleep 1;
 		} forEach Ghosts_townLocation_positions;
 	};	
-
+	/*
 	Ghosts_server_fnc_savePlayerProfileToDB = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf";
 	Ghosts_server_fnc_checkPlayerIntegrity = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_checkPlayerIntegrity.sqf";
-
 	Ghosts_fnc_AIgear = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_AIgear.sqf";
 	Ghosts_fnc_taskPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_taskPatrol.sqf";
 	Ghosts_fnc_spawnAIGroup = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_spawnAIGroup.sqf";
 	Ghosts_server_fnc_spawnAirPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_spawnAirPatrol.sqf";
 	Ghosts_fnc_maintainOccupationMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf";
-	//Ghosts_fnc_deleteMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_deleteMarkers.sqf";
-	//Ghosts_fnc_onMPKilled = compileFinal preprocessFileLineNumbers "functions\Ghosts_fnc_onMPKilled.sqf";
-
+	*/
 	Ghosts_server_graveYardGroup = createGroup EAST;
 
 	Ghosts_server_maximumAllowedAI = 200;
@@ -123,12 +120,7 @@ if !(isDedicated) then
 	Ghosts_player_isAccessingStash = false;
 
 	Ghosts_playerLoaded = false;
-	/*
-	player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
-	player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
-	player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
-	player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
-	*/
+	
 	uiSleep 5;
 
 	[] call Ghosts_fnc_createPlayerActions;
