@@ -3,7 +3,7 @@ private ["_side","_soldier","_vehicle","_group","_patrolVehicle","_gunner1","_gu
 
 _side = WEST;
 _soldier ="B_Survivor_F";
-_vehicle = (selectRandom ["RHS_UH1Y_d"]);
+_vehicle = (selectRandom ["RHS_UH60M"]);
 
 if (random 1 > 0.5) then
 {
