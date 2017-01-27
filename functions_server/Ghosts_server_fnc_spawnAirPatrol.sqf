@@ -15,7 +15,7 @@ if (random 1 > 0.5) then
 _group = createGroup _side;
 _group setCombatMode "RED";
 
-_patrolVehicle = createvehicle [_vehicle,position player,[],0,"NONE"];
+_patrolVehicle = createvehicle [_vehicle,[0,0,0],[],0,"NONE"];
 
 _pilot = _group createUnit [_soldier,[0,0,0],[],0,"NONE"];
 _pilot moveInDriver _patrolVehicle;
