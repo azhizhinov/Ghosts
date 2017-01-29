@@ -42,7 +42,7 @@ while {true} do
 
 		_isBleeding = player getVariable ["Ghosts_playerIsBleeding",-1];
 
-		if ((_isBleeding) && (_health >= 75)) then
+		if (_health >= 75) then
 		{
 			player setVariable ["Ghosts_playerIsBleeding",-1,true];
 		};	
