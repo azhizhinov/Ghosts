@@ -20,7 +20,7 @@ _data =
 profileNamespace setVariable ["Ghosts_playerData",[_data,(getPlayerUID player)]];
 saveProfileNamespace;
 
-[_data,(getPlayerUID player),_isNew] remoteExecCall ["Ghosts_server_fnc_savePlayerProfileToDB", 2, false];
+[_data,(getPlayerUID player),_isNew] remoteExecCall ["Ghosts_server_fnc_savePlayerProfileToDB", 0, false];
 
 if (_isNew) then
 {	

@@ -67,8 +67,10 @@ while {true} do
 			};
 		};
 
-		if (Ghosts_bloodLevel <= 0) then
+		if ((Ghosts_bloodLevel <= 0) && (_health < 75)) then
 		{
+
+			[30] call BIS_fnc_bloodEffect;
 
 			player setDamage (damage player) + 0.01;
 			player allowDamage true;
