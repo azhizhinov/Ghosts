@@ -13,7 +13,7 @@ while {true} do
 	};	
 
 	_damage = 100 - (damage player * 100);
-	hint str _damage;
+	//hint str _damage;
 
 	if ((_damage < 100) && (time - 30 >= Ghosts_healthRegenTimeStamp) && (player getVariable ["Ghosts_PlayerIsUnconcious",-1]) isEqualTo false) then
 	{
