@@ -1,0 +1,63 @@
+author = "JohnO & Bek";
+//onLoadMission= "A PvP sentric mission similar to Squad"; // Removed -- Handled in the mission.sqm
+OnLoadIntro = "";
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
+onLoadName = "Test mission";
+loadScreen =  "";
+overviewPicture = "";
+
+disableChannels[]={0,2};
+
+class Header
+{
+	gameType = SC;
+    minPlayers = 1;
+    maxPlayers = 64;
+};
+
+
+corpseManagerMode = 1;
+corpseLimit = 1;
+corpseRemovalMinTime = 5;
+corpseRemovalMaxTime = 5;
+	
+wreckManagerMode = 1;
+wreckLimit = 1;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 120;
+
+class CfgRemoteExec
+{
+    class Commands
+    {
+            mode = 2;
+
+            class doMove {allowedTargets = 2;};           					//execute only on server
+            class playAction {allowedTargets = 2;};                         //jip is not allowed for this command
+            class setDir {allowedTargets = 2;};
+            class setUnconscious {allowedTargets = 2;};
+    };
+    class Functions
+    {
+        mode = 0;
+        jip = 0;                                       						//no functions can use jip
+					
+        class BIS_fnc_setRank {allowedTargets = 1;};   						//execute only on clients, server execution denied
+    };
+};
+
+class CfgFunctions
+{
+    class Ghosts
+    {
+        class Bootstrap
+        {
+            file="client_init";
+            class preInit
+            {
+                preInit = 1;
+            };
+        };
+    };
+};
