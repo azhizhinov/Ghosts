@@ -33,10 +33,10 @@ class CfgRemoteExec
     {
             mode = 2;
 
-            class doMove {allowedTargets = 2;};           					//execute only on server
-            class playAction {allowedTargets = 2;};                         //jip is not allowed for this command
-            class setDir {allowedTargets = 2;};
-            class setUnconscious {allowedTargets = 2;};
+            class doMove {allowedTargets = 0;};           					//execute only on server
+            class playAction {allowedTargets = 0;};                         //jip is not allowed for this command
+            class setDir {allowedTargets = 0;};
+            class setUnconscious {allowedTargets = 0;};
     };
     class Functions
     {

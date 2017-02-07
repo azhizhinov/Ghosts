@@ -1,10 +1,11 @@
-_caller = _this select 0;
+_target = _this select 0;
+_caller = _this select 1;
 _action = _this select 2;
 
-_caller removeAction _action;
+_target removeAction _action;
 
 survivor_1 playMoveNow "AmovPercMstpSrasWrflDnon";
-[survivor_1] join player;
+[survivor_1] join _caller;
 survivor_1 call BIS_fnc_ambientAnim__terminate;
 
 [west,["task2","Rescue"],["Get the pilot to the extraction point","Evac"],(getMarkerPos "task2_marker"),true,1,true,"run",true] call BIS_fnc_taskCreate;

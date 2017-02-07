@@ -15,4 +15,4 @@ private ["_marker","_ai","_aiCount","_markerText"];
 	_markerText = format ["Estimated hostiles - %1",_aiCount];
 	_marker setMarkerText _markerText;
 
-} forEach Ghosts_map_currentMarkers
+} forEach Ghosts_map_currentMarkers;

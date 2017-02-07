@@ -77,15 +77,3 @@ for "_i" from 0 to 5 do
 } forEach [_pilot,_gunner1,_gunner2];
 
 Ghosts_server_currentAI = Ghosts_server_currentAI + 3;
-/*
-[_patrolVehicle] spawn
-{
-	while {true} do
-	{	
-		_v = _this select 0;
-		_mk = createMarker ["MK",(getPos _v)];
-		_mk setMarkerType "o_inf";
-		_mk setMarkerPos (getPos _v);
-		uiSleep 1;
-	};	
-};

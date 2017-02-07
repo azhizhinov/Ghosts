@@ -132,7 +132,7 @@ Ghosts_reviveAction = ["Revive",
 
     sleep 4;
 
-    [_target, false] remoteExec ["setUnconscious",2,false];
+    [_target, false] remoteExec ["setUnconscious",0,false];
     _target setVariable ["Ghosts_PlayerIsUnconcious",false,true];
 
 
