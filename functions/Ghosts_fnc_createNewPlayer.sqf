@@ -30,14 +30,17 @@ player setVariable ["Ghosts_playerIsBleeding",-1,true];
 player setVariable ["Ghosts_lastSourceOfDamage",nil,true];
 player setVariable ["Ghosts_PlayerIsUnconcious",false,true];
 player setVariable ["Ghosts_playerSide",(side player),true];
+player setVariable ["Ghosts_playerKills",0,true];
+player setVariable ["Ghosts_bloodLevel",12000,true];
 
 Ghosts_bloodLevel = 12000;
-Ghosts_playerKills = 0;
 
 player removeAllEventHandlers "HandleDamage";
 player removeAllEventHandlers "Respawn";
 player removeAllEventHandlers "Put";
 player removeAllEventHandlers "Take";
+
+uiSleep 1;
 
 player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];

@@ -14,7 +14,6 @@ _damageRequired = 0.9;
 _bloodLoss = [_typeOfProjectile] call Ghosts_fnc_getBulletRating;
 
 Ghosts_bloodLevel = (Ghosts_bloodLevel - _bloodLoss);
-copyToClipboard str Ghosts_bloodLevel;
 
 if ((_currentDamage + _incomingDamage) > _damageRequired) then
 {		

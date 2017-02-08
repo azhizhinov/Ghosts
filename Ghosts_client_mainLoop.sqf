@@ -27,7 +27,7 @@ while {true} do
 
 		/** Blood Regen **/
 
-		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1) && (Ghosts_bloodLevel < 1200) && (Ghosts_bloodLevel > 0)) then
+		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1) && (Ghosts_bloodLevel < 12000) && (Ghosts_bloodLevel > 0)) then
 		{
 			Ghosts_bloodLevel = (Ghosts_bloodLevel + Ghosts_bloodRegenPerTick);
 
