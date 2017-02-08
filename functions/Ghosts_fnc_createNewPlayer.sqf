@@ -13,11 +13,11 @@
 
 private ["_uniforms","_weapons","_startingLoadout"];
 
-_uniforms = [""];
+_uniforms = ["rhsgref_uniform_reed","rhsgref_uniform_tigerstripe","rhsgref_uniform_flecktarn","rhsgref_uniform_ERDL","rhsgref_uniform_alpenflage","rhsgref_uniform_ttsko_urban","rhsgref_uniform_ttsko_mountain"];
 _weapons = [""];
 _startingLoadout = 
 [
-	["rhsusf_weap_MP7A2","","","",["rhsusf_mag_40Rnd_46x30_FMJ",40],[],""],[],[],["U_I_G_resistanceLeader_F",[["rhsusf_mag_40Rnd_46x30_FMJ",3,40]]],[],["B_AssaultPack_blk",[["rhsusf_mag_40Rnd_46x30_FMJ",4,40]]],"","",[],["","","","","",""]
+	["rhs_weap_akms","","","",["rhs_30Rnd_762x39mm",30],[],""],[],[],[(selectRandom _uniforms),[["FirstAidKit",1],["rhs_30Rnd_762x39mm",1,30]]],["rhs_6sh92",[["rhs_30Rnd_762x39mm",3,30]]],[],"","",[],["ItemMap","","","ItemCompass","ItemWatch",""]
 ];
 
 player setCustomAimCoef 0.3;
@@ -43,6 +43,7 @@ player addEventHandler ["HandleDamage", { _this call Ghosts_fnc_handleDamage;}];
 player addEventHandler ["Respawn", { _this call Ghosts_fnc_handleRespawn; }];
 player addEventHandler ["Put",{ _this call Ghosts_fnc_onPut; }];
 player addEventHandler ["Take",{ _this call Ghosts_fnc_onTakeFromStash; }];
+(findDisplay 46) displayAddEventHandler ["KeyDown", { _this call Ghosts_fnc_eventOnKeyDown; }];
 
 Ghosts_playerLoaded = true;
 Ghosts_player_isAccessingStash = false;

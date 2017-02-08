@@ -1,8 +1,13 @@
 
 
-/**	Initialize server AI **/
+/**	Initialize server starting params, objects and AI **/
+
+setDate [2017, 2, 25, floor (random 23), 0];
+[] call Ghosts_server_fnc_weatherUpdate;
+forceWeatherChange;
 
 [] call Ghosts_server_fnc_spawnAirPatrol;
+
 for "_i" from 0 to 10 + floor (random 5) do
 {
 	
@@ -68,12 +73,34 @@ while {true} do
 	{
 		[] call Ghosts_server_fnc_spawnAirPatrol;
 		Ghosts_server_airPatrol_timestamp = time;
+	};
+
+	/** Weather **/
+
+	if (time - Ghosts_server_weatherChangeInterval >= Ghosts_server_weatherChangeInterval_timeStamp) then
+	{
+		[] call Ghosts_server_fnc_weatherUpdate;
+		Ghosts_server_weatherChangeInterval_timeStamp = time;
 	};	
 	
 	/** Call marker cleanup func **/
 	
 	[] call Ghosts_fnc_maintainOccupationMarkers;
-	//[] call Ghosts_fnc_deleteMarkers;
+
+	/** Time multiplyer **/
+
+	if ((time > 17) && (time < 5)) then
+	{
+		setTimeMultiplier 10;
+	}
+	else
+	{
+		setTimeMultiplier 5;
+	};	
+
+	/** Simulation manager **/
+
+	//[] call Ghosts_server_fnc_simulationManager;
 
 	{
 		_x removeAllMPEventHandlers "MPKilled";

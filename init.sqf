@@ -30,16 +30,6 @@ if (isServer) then
 
 	addMissionEventHandler ["HandleDisconnect", { _this call Ghosts_server_fnc_onHandleDisconnect; }];
 
-	/*
-	Ghosts_server_fnc_savePlayerProfileToDB = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf";
-	Ghosts_server_fnc_checkPlayerIntegrity = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_checkPlayerIntegrity.sqf";
-	Ghosts_fnc_AIgear = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_AIgear.sqf";
-	Ghosts_fnc_taskPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_taskPatrol.sqf";
-	Ghosts_fnc_spawnAIGroup = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_spawnAIGroup.sqf";
-	Ghosts_server_fnc_spawnAirPatrol = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_server_fnc_spawnAirPatrol.sqf";
-	Ghosts_fnc_maintainOccupationMarkers = compileFinal preprocessFileLineNumbers "functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf";
-	*/
-
 	Ghosts_server_graveYardGroup = createGroup EAST;
 
 	Ghosts_server_maximumAllowedAI = 200;
@@ -51,6 +41,8 @@ if (isServer) then
 	Ghosts_server_AI_random_spawnInterval_timestamp = time;
 	Ghosts_server_airPatrolInterval = 1100;
 	Ghosts_server_airPatrol_timestamp = time;
+	Ghosts_server_weatherChangeInterval = 1800;
+	Ghosts_server_weatherChangeInterval_timeStamp = time;
 
 	civilian setFriend [EAST,0];
 	civilian setFriend [WEST,0];
@@ -65,31 +57,6 @@ if (isServer) then
 		profileNamespace setVariable ["Ghosts_server_allSavedPlayerData",[]];
 		Ghosts_server_allSavedPlayerData = [];
 		saveProfileNamespace;
-	}];
-	/*
-	player addAction ["Spawn AI chunts",
-	{
-		[
-			[false,[0,0,0]], 	// Force AI to move to specific position after spawning - Params - 0: Boolean, enable 1: Position to move to
-			"TOWN",				// if "TOWN" AI will spawn at a random town other wise, "RANDOM"
-			2,					// Amount of AI groups to spawn this call
-			1,					// minimum soldiers per group
-			3,					// Maximum soldiers per group
-			150					// Roaming radius
-		]
-
-		call Ghosts_fnc_spawnAIGroup;
-
-		[
-			[false,[0,0,0]], 	// Force AI to move to specific position after spawning - Params - 0: Boolean, enable 1: Position to move to
-			"RANDOM",			// if "TOWN" AI will spawn at a random town other wise, position 
-			2,					// Amount of AI groups to spawn this call
-			1,					// minimum soldiers per group
-			3,					// Maximum soldiers per group
-			150					// Roaming radius
-		]
-
-		call Ghosts_fnc_spawnAIGroup;
 	}];
 	*/
 };	
@@ -131,8 +98,12 @@ if !(isDedicated) then
 	[] call Ghosts_fnc_loadPlayerData;
 
 	[] execVM "Ghosts_client_mainLoop.sqf";
-
+	[player] joinSilent grpNull;
 	disableUserInput false;
+
+	[player,"Parent1",["Search, Destroy, Survive","Ghosts"],(getMarkerPos 'parent_marker'),true,1,false,"scout",true] call BIS_fnc_taskCreate;
+	[player,["task1","Parent1"],["You have been dropped in with little equipment, take what you can and store it safely at Safe base BRAVO","Safe base BRAVO"],(getMarkerPos 'stash_marker'),false,1,false,"meet",true] call BIS_fnc_taskCreate;
+	[player,["task2","Parent1"],["You have been dropped into a chaotic war between factions, your job simple - Cause as much disruption as possible","Disrupt and Destroy"],(getMarkerPos "task2_marker"),false,1,false,"kill",true] call BIS_fnc_taskCreate;
 };
 /*
 player addAction ["Save player data",

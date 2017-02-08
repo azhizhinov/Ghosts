@@ -78,18 +78,24 @@ while {true} do
 		};	
 
 		/** Display stats **/
-		
-		hint parseText format 
-		["
-			<t align='center' size='2'>Debug Monitor</t><br/>
-			<t align='left'>Blood:</t><t align='right'>%1<br/>
-			<t align='left'>Health:</t><t align='right'>%2</t><br/>
-			<t align='left'>Kills:</t><t align='right'>%3</t><br/>
-			",
-			Ghosts_bloodLevel,
-			round _health,
-			player getVariable ["Ghosts_playerKills",0]	
-		];
+		if (alive player) then
+		{	
+			hint parseText format 
+			["
+				<t align='center' size='2'>Debug Monitor</t><br/>
+				<t align='left'>Blood:</t><t align='right'>%1<br/>
+				<t align='left'>Health:</t><t align='right'>%2</t><br/>
+				<t align='left'>Kills:</t><t align='right'>%3</t><br/>
+				",
+				Ghosts_bloodLevel,
+				round _health,
+				player getVariable ["Ghosts_playerKills",0]	
+			];
+		}
+		else
+		{
+			hint "";
+		};	
 
 		/** Save Player Data **/
 

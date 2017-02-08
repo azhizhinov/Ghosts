@@ -62,7 +62,9 @@ forEach
     ["Ghosts_fnc_spawnAIGroup","functions_server\Ghosts_fnc_spawnAIGroup.sqf"],
     ["Ghosts_fnc_maintainOccupationMarkers","functions_server\Ghosts_fnc_maintainOccupationMarkers.sqf"],
     ["Ghosts_server_fnc_onHandleDisconnect","functions_server\Ghosts_server_fnc_onHandleDisconnect.sqf"],
-    ["Ghosts_server_fnc_savePlayerProfileToDB","functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf"]
+    ["Ghosts_server_fnc_savePlayerProfileToDB","functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf"],
+    ["Ghosts_server_fnc_weatherUpdate","functions_server\Ghosts_server_fnc_weatherUpdate.sqf"]
+    //["Ghosts_server_fnc_simulationManager","functions_server\Ghosts_server_fnc_simulationManager.sqf"]
 ];
 
 true

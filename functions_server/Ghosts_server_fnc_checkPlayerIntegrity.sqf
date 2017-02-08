@@ -3,8 +3,8 @@ private ["_dataSelection"];
 
 _playerData = _this select 0;
 _callingPlayerUID = _this select 1;
-_playerObject = (_this select 2) call BIS_fnc_objectFromNetID;
-//_playerObject = objectFromNetId (_this select 2);
+//_playerObject = (_this select 2) call BIS_fnc_objectFromNetID;
+_playerObject = objectFromNetId (_this select 2);
 
 _accepted = false;
 

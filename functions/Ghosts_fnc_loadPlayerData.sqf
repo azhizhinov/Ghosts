@@ -18,8 +18,8 @@ if (_playerData isEqualTo -1) exitWith
 	_playerData = _allData select 0;
 	_playerID = _allData select 1;
 
-	[_allData,_playerID,(player call BIS_fnc_netID)] remoteExecCall ["Ghosts_server_fnc_checkPlayerIntegrity", 2, false];
-	//[_allData,_playerID, netID player] remoteExecCall ["Ghosts_server_fnc_checkPlayerIntegrity", 2, false];
+	//[_allData,_playerID,(player call BIS_fnc_netID)] remoteExecCall ["Ghosts_server_fnc_checkPlayerIntegrity", 2, false];
+	[_allData,_playerID, netID player] remoteExecCall ["Ghosts_server_fnc_checkPlayerIntegrity", 2, false];
 
 	uiSleep 2;
 
@@ -89,7 +89,7 @@ if (_playerData isEqualTo -1) exitWith
 	}
 	else
 	{
-
+		/*
 		Ghosts_spawnSuicideAction = player addAction ["Suicide",
 		{
 			_caller = _this select 0;
@@ -102,7 +102,8 @@ if (_playerData isEqualTo -1) exitWith
 			profileNameSpace setVariable ["Ghosts_playerData",-1];
 			saveProfileNamespace;
 		}];
-
+		*/
+		cutText ["","BLACK FADED",1000];
 		_timer = 0;
 		_timelimit = 30;
 

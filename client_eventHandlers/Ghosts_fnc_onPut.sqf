@@ -17,12 +17,19 @@ if (_container getVariable ["Ghosts_server_playerStash",-1] isEqualTo true) then
 	{
 		case "Uniform":
 		{
-			titleText ["Ensure you remove all items from uniforms and vests and store them seperately.","PLAIN"];
+			titleText ["Ensure you remove all items from uniforms, vests and backpacks and store them seperately.","PLAIN"];
+			systemChat "Ensure you remove all items from uniforms, vests and backpacks and store them seperately";
 		};
 		case "Vest":
 		{
-			titleText ["Ensure you remove all items from uniforms and vests and store them seperately.","PLAIN"];
+			titleText ["Ensure you remove all items from uniforms, vests and backpacks and store them seperately.","PLAIN"];
+			systemChat "Ensure you remove all items from uniforms, vests and backpacks and store them seperately";
 		};
+		case "Backpack":
+		{
+			titleText ["Ensure you remove all items from uniforms, vests and backpacks and store them seperately.","PLAIN"];
+			systemChat "Ensure you remove all items from uniforms, vests and backpacks and store them seperately";
+		};		
 	};
 
 	_currentStash pushBack _item;
