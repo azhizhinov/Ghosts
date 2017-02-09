@@ -15,7 +15,7 @@
 
 */
 
-private ["_spawnPosition","_groupAmount","_unitsPerGroupMin","_unitsPerGroupMax","_roamingRadius","_group","_unit","_moveToPos","_soldierType","_side"];
+private ["_spawnPosition","_groupAmount","_unitsPerGroupMin","_unitsPerGroupMax","_roamingRadius","_group","_unit","_moveToPos","_soldierType","_side","_distance","_isSafe"];
 
 _isFrontLine = 				_this select 0;
 _spawnPosition = 			_this select 1;
@@ -28,27 +28,30 @@ if (Ghosts_server_currentAI >= Ghosts_server_maximumAllowedAI) exitWith {};
 
 if (_spawnPosition isEqualTo "TOWN") then
 {
-	_spawnPosition = [(selectRandom Ghosts_townLocation_positions),50] call Ghosts_fnc_findRandomPositionInCircle;
-	/*
-	_markerTypes = ["hd_end","hd_join","hd_warning","hd_unknown"];
-	_markerTextTypes = 
-	[
-		"Enemy presence"
-	];
+	_distance = 50;
+	_spawnPosition = [(selectRandom Ghosts_townLocation_positions),_distance] call Ghosts_fnc_findRandomPositionInCircle;
+	_isSafe = [_spawnPosition] call Ghosts_server_fnc_isPlayerNear;
 
-	_markerType = selectRandom _markerTypes;
-	_markerText = selectRandom _markerTextTypes;
-
-	_marker = createMarker [ format["Notifcation%1", diag_tickTime],_spawnPosition];
-	_marker setMarkerType _markerType;
-	_marker setMarkerText _markerText;
-
-	Ghosts_map_currentMarkers pushBack [_marker,300 + floor (random 600),time];
-	*/
+	while {!_isSafe} do
+	{
+		_distance = _distance + 5;
+		_spawnPosition = [_spawnPosition,_distance] call Ghosts_fnc_findRandomPositionInCircle;
+		_isSafe = [_spawnPosition] call Ghosts_server_fnc_isPlayerNear;
+		uiSleep 0.01;
+	};	
 }
 else
-{
+{	
+	_distance = 150;
 	_spawnPosition = [(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos;
+	_isSafe = [_spawnPosition] call Ghosts_server_fnc_isPlayerNear;
+	while {!_isSafe} do
+	{
+		_distance = _distance + 5;
+		_spawnPosition = [_spawnPosition,_distance] call Ghosts_fnc_findRandomPositionInCircle;
+		_isSafe = [_spawnPosition] call Ghosts_server_fnc_isPlayerNear;
+		uiSleep 0.01;
+	};
 };	
 
 if (random 1 > 0.5) then

@@ -7,6 +7,12 @@ setDate [2017, 2, 25, floor (random 23), 0];
 forceWeatherChange;
 
 [] call Ghosts_server_fnc_spawnAirPatrol;
+[] spawn Ghosts_server_fnc_generateWrecks;
+
+Ghosts_allMapBuildings = [0,0,0] nearObjects ["House", 100000];
+{
+	_x setDamage 0.9;
+} forEach Ghosts_allMapBuildings;
 
 for "_i" from 0 to 10 + floor (random 5) do
 {
@@ -20,7 +26,7 @@ for "_i" from 0 to 10 + floor (random 5) do
 		150					// Roaming radius
 	]
 
-	call Ghosts_fnc_spawnAIGroup;
+	spawn Ghosts_fnc_spawnAIGroup;
 
 	[
 		[false,[0,0,0]], 	// Force AI to move to specific position after spawning - Params - 0: Boolean, enable 1: Position to move to
@@ -31,7 +37,7 @@ for "_i" from 0 to 10 + floor (random 5) do
 		150					// Roaming radius
 	]
 
-	call Ghosts_fnc_spawnAIGroup;
+	spawn Ghosts_fnc_spawnAIGroup;
 };
 
 /** Start the main server thread **/
@@ -51,7 +57,7 @@ while {true} do
 			150					// Roaming radius
 		]
 
-		call Ghosts_fnc_spawnAIGroup;
+		spawn Ghosts_fnc_spawnAIGroup;
 	};
 
 	if (time - Ghosts_server_AI_random_spawnInterval >= Ghosts_server_AI_random_spawnInterval_timestamp) then
@@ -66,7 +72,7 @@ while {true} do
 			150					// Roaming radius
 		]
 
-		call Ghosts_fnc_spawnAIGroup;
+		spawn Ghosts_fnc_spawnAIGroup;
 	};
 	
 	if (time - Ghosts_server_airPatrolInterval >= Ghosts_server_airPatrol_timestamp) then
