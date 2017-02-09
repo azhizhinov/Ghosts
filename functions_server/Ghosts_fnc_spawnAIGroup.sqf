@@ -125,7 +125,10 @@ for "_n" from 0 to _groupAmount do
 		if (random 1 > 0.7) then
 		{
 			_unit addWeapon _binos;
-		};	
+		};
+
+		_unit addPrimaryWeaponItem "acc_flashlight";
+
 		_unit addMPEventHandler 
 		["MPKilled",
 			{
@@ -159,7 +162,15 @@ for "_n" from 0 to _groupAmount do
 
 			_dmg
 		}];
+		/*
+		_unit addEventHandler ["Fired",
+		{
+			private ["_unit"];
 
+			_unit = _this select 0;
+			_unit setAmmo [primaryWeapon _unit,10000];
+		}];
+		*/
 		Ghosts_server_currentAI = Ghosts_server_currentAI + 1;
 	};
 

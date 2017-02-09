@@ -88,14 +88,30 @@ while {true} do
 	[] call Ghosts_fnc_maintainOccupationMarkers;
 
 	/** Time multiplyer **/
+	if (time - Ghosts_server_timeMultiplyerCheckInteval >= Ghosts_server_timeMultiplyerCheckInteval_timeStamp) then
+	{	
+		if ((time > 17) && (time < 5)) then
+		{
+			setTimeMultiplier 10;
 
-	if ((time > 17) && (time < 5)) then
-	{
-		setTimeMultiplier 10;
-	}
-	else
-	{
-		setTimeMultiplier 5;
+			{
+				if !(isPlayer _x) then
+				{	
+					_x enableGunLights "forceOn";
+				};	
+			} forEach allUnits;
+		}
+		else
+		{
+			setTimeMultiplier 5;
+			{
+				if !(isPlayer _x) then
+				{	
+					_x enableGunLights "forceOff";
+				};	
+			} forEach allUnits;
+		};
+		Ghosts_server_timeMultiplyerCheckInteval_timeStamp = time;
 	};	
 
 	/** Simulation manager **/
@@ -106,6 +122,13 @@ while {true} do
 		_x removeAllMPEventHandlers "MPKilled";
 		_x addMPEventHandler ["MPKilled", { _this call Ghosts_fnc_onMPKilled; }];
 	} forEach playableUnits;
+
+	{
+		if !(isPlayer _x) then
+		{	
+			_x setAmmo [currentWeapon _x,1000];
+		};	
+	} forEach (allUnits - playableUnits);
 
 	uiSleep 15;
 };	

@@ -55,8 +55,24 @@ player setVariable ["Ghosts_playerData",1];
 
 /** set position and loadout **/
 
-player setPos ([(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos);
-player setUnitLoadout _startingLoadout;
+_spawnPos = [(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos;
+_spawnPos set [2,1500];
+
+//player setPos ([(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")), 0, 10000, 10, 0,1,0] call BIS_fnc_findSafePos);
+player setUnitLoadout _startingLoadout;+
+removeBackpack player;
+player addBackpackGlobal "B_Parachute";
+
+player setPosATL _spawnPos;
+
+player switchMove "";
+player playMoveNow "HaloFreeFall_non"; 
+player playMoveNow "HaloFreeFall_non";
+player playMoveNow "HaloFreeFall_non";
+
+player setVelocity [(sin (getDir player)) * 50, (cos (getDir player)) * 50, -5];
+
+[] spawn Ghosts_fnc_parachuteFix;
 
 player allowDamage false;
 

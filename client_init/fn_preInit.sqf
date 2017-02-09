@@ -40,6 +40,7 @@ forEach
 	["Ghosts_fnc_targetLifeState","functions\Ghosts_fnc_targetLifeState.sqf"],
 	["Ghosts_fnc_accessPlayerStash","functions\Ghosts_fnc_accessPlayerStash.sqf"],
     ["Ghosts_fnc_takeUniform","functions\Ghosts_fnc_takeUniform.sqf"],
+    ["Ghosts_fnc_parachuteFix","functions\Ghosts_fnc_parachuteFix.sqf"],
 	//player saving
 	["Ghosts_fnc_savePlayerData","functions\Ghosts_fnc_savePlayerData.sqf"],
 	["Ghosts_fnc_loadPlayerData","functions\Ghosts_fnc_loadPlayerData.sqf"],
