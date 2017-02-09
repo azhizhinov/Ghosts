@@ -7,7 +7,7 @@ setDate [2017, 2, 25, floor (random 23), 0];
 forceWeatherChange;
 
 [] call Ghosts_server_fnc_spawnAirPatrol;
-[] spawn Ghosts_server_fnc_generateWrecks;
+//[] spawn Ghosts_server_fnc_generateWrecks;
 
 Ghosts_allMapBuildings = [0,0,0] nearObjects ["House", 100000];
 {

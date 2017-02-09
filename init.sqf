@@ -43,6 +43,8 @@ if (isServer) then
 	Ghosts_server_airPatrol_timestamp = time;
 	Ghosts_server_weatherChangeInterval = 1800;
 	Ghosts_server_weatherChangeInterval_timeStamp = time;
+	Ghosts_server_timeMultiplyerCheckInteval = 300;
+	Ghosts_server_timeMultiplyerCheckInteval_timeStamp = time;
 
 	civilian setFriend [EAST,0];
 	civilian setFriend [WEST,0];

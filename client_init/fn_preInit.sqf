@@ -66,7 +66,8 @@ forEach
     ["Ghosts_server_fnc_savePlayerProfileToDB","functions_server\Ghosts_server_fnc_savePlayerProfileToDB.sqf"],
     ["Ghosts_server_fnc_weatherUpdate","functions_server\Ghosts_server_fnc_weatherUpdate.sqf"],
     ["Ghosts_server_fnc_isPlayerNear","functions_server\Ghosts_server_fnc_isPlayerNear.sqf"],
-    ["Ghosts_server_fnc_findRoadPosition","functions_server\Ghosts_server_fnc_findRoadPosition.sqf"]
+    ["Ghosts_server_fnc_findRoadPosition","functions_server\Ghosts_server_fnc_findRoadPosition.sqf"],
+    ["Ghosts_server_fnc_generateWrecks","functions_server\Ghosts_server_fnc_generateWrecks.sqf"]
     //["Ghosts_server_fnc_simulationManager","functions_server\Ghosts_server_fnc_simulationManager.sqf"]
 ];
 
