@@ -19,7 +19,7 @@ if (isServer) then
 	[] spawn
 	{
 		{
-			_marker = createMarker [ format["Notifcation%1", diag_tickTime],_x];
+			_marker = createMarker [ format["Notifcation%1", diag_tickTime],[(_x select 0),(_x select 1) + 20,0]];
 			_marker setMarkerType "o_inf";
 			_marker setMarkerText "Estimated hostiles -";
 			
@@ -60,7 +60,7 @@ if (isServer) then
 		Ghosts_server_allSavedPlayerData = [];
 		saveProfileNamespace;
 	}];
-	*/
+	*/	
 };	
 
 if !(isDedicated) then
@@ -103,7 +103,7 @@ if !(isDedicated) then
 	[player] joinSilent grpNull;
 	disableUserInput false;
 
-	[player,"Parent1",["Search, Destroy, Survive","Ghosts"],(getMarkerPos 'parent_marker'),true,1,false,"scout",true] call BIS_fnc_taskCreate;
+	[player,"Parent1",["Search, Destroy, Survive","Ghosts"],(getMarkerPos 'parent_marker'),false,1,false,"scout",true] call BIS_fnc_taskCreate;
 	[player,["task1","Parent1"],["You have been dropped in with little equipment, take what you can and store it safely at Safe base BRAVO","Safe base BRAVO"],(getMarkerPos 'stash_marker'),false,1,false,"meet",true] call BIS_fnc_taskCreate;
 	[player,["task2","Parent1"],["You have been dropped into a chaotic war between factions, your job simple - Cause as much disruption as possible","Disrupt and Destroy"],(getMarkerPos "task2_marker"),false,1,false,"kill",true] call BIS_fnc_taskCreate;
 };

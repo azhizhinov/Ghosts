@@ -27,13 +27,18 @@ while {true} do
 
 		/** Blood Regen **/
 
-		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1) && (Ghosts_bloodLevel < 12000) && (Ghosts_bloodLevel > 0)) then
+		if ((time - Ghosts_bloodRegenCoolDown >= Ghosts_lastBloodRegen)	&& (player getVariable ["Ghosts_playerIsBleeding",-1] isEqualTo -1)) then
 		{
 			Ghosts_bloodLevel = (Ghosts_bloodLevel + Ghosts_bloodRegenPerTick);
 
 			if (Ghosts_bloodLevel >= 12000) then
 			{
-				player setDamage (damage player) - 0.01;
+				if ((damage player) > 0) then
+				{
+					player setDamage (damage player) - 0.01;
+					titleText ["I am healing..","PLAIN DOWN"];
+				};	
+				Ghosts_bloodLevel = 12000;
 			};
 			Ghosts_lastBloodRegen = time;
 		};
@@ -78,24 +83,18 @@ while {true} do
 		};	
 
 		/** Display stats **/
-		if (alive player) then
-		{	
-			hint parseText format 
-			["
-				<t align='center' size='2'>Debug Monitor</t><br/>
-				<t align='left'>Blood:</t><t align='right'>%1<br/>
-				<t align='left'>Health:</t><t align='right'>%2</t><br/>
-				<t align='left'>Kills:</t><t align='right'>%3</t><br/>
-				",
-				Ghosts_bloodLevel,
-				round _health,
-				player getVariable ["Ghosts_playerKills",0]	
-			];
-		}
-		else
-		{
-			hint "";
-		};	
+	
+		hint parseText format 
+		["
+			<t align='center' size='2'>Vitals</t><br/>
+			<t align='left'>Blood:</t><t align='right'>%1<br/>
+			<t align='left'>Health:</t><t align='right'>%2</t><br/>
+			<t align='left'>Kills:</t><t align='right'>%3</t><br/>
+			",
+			Ghosts_bloodLevel,
+			round _health,
+			player getVariable ["Ghosts_playerKills",0]	
+		];
 
 		/** Save Player Data **/
 
@@ -105,7 +104,11 @@ while {true} do
 			[false] call Ghosts_fnc_savePlayerData;
 			systemChat "Your player data has been synced with the server";
 		};
-	};
+	}
+	else
+	{
+		hint "";
+	};	
 
 	player addRating 100000;
 

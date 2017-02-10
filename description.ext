@@ -7,14 +7,14 @@ class CfgRemoteExec
 {
     class Commands
     {
-            mode = 2;
+            mode = 1;
 
             class setUnconscious {allowedTargets = 0;};
             class allowDamage {allowedTargets = 0;};
     };
     class Functions
     {
-        mode = 2;                                   						                       
+        mode = 1;                                   						                       
 					
         class Ghosts_server_fnc_savePlayerProfileToDB {allowedTargets = 0;};   						//execute only on clients, server execution denied
     };

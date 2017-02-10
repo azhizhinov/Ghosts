@@ -29,7 +29,7 @@ if (Ghosts_allWorldPersistantObjects isEqualTo []) then
 		];
 
 		_randWreck = selectRandom _wrecks;
-		_roadPosition = [Event_world_centerPosition,30000] call Ghosts_server_fnc_findRoadPosition;
+		_roadPosition = [(getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition")),30000] call Ghosts_server_fnc_findRoadPosition;
 		_position = [_roadPosition,10] call Ghosts_fnc_findRandomPositionInCircle;
 
 		_wreckVehicle = createSimpleObject [_randWreck,_position];

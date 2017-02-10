@@ -11,6 +11,7 @@ while {true} do
 			deleteVehicle (vehicle player);
 			player switchMove "";
 			player setVelocity [0, 0, 0];
+			[false] call Ghosts_fnc_savePlayerData;
 		};
 	};
 	//if ((getPosATL player) select 2 <= 2) exitWith {};
